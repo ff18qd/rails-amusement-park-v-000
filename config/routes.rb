@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-    get '/', to: 'welcome#hello'
+    root 'welcome#hello'
+    get 'signin', to: 'sessions#new'
+    post 'signin', to: 'sessions#create'
     resources :users
 
 end

@@ -1,0 +1,13 @@
+<h2>Select your name</h2>
+
+
+<%= form_for @user, url: signin_path, method: :post do |f| %>
+  <%= f.label :user_name %>:
+  <%= f.text_field :name %><br />
+  
+  <%= f.label :user_password %>:
+  <%= f.text_field :password %><br />
+
+  <%= f.submit value="Sign In"%>
+<% end %>
+
