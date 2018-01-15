@@ -1,4 +1,14 @@
+<% if @user.admin %>
+    <h2>ADMIN</h2>
+<% end %>
+
 <%= @user.name %>
 <li>Mood: <%= @user.mood %></li>
 <li>Tickets: <%= @user.tickets %></li>
 <li>Height: <%= @user.height %></li>
+
+
+<%#= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+  
+<%# end %>
+<%= link_to "Log Out", '/logout' %>
