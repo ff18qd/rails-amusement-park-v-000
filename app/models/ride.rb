@@ -12,20 +12,33 @@ class Ride < ActiveRecord::Base
           current_tickets =  user.tickets - attraction.tickets
           current_nausea =  user.nausea + attraction.nausea_rating
           current_happiness =  user.happiness + attraction.happiness_rating
-        
           user.update(happiness: current_happiness, nausea: current_nausea, tickets: current_tickets)
-            
+          return "Thanks for riding the #{attraction.name}!"
+          # start_ride(user, attraction)
+          
       elsif  user.height < attraction.min_height && user.tickets < attraction.tickets
         return "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
+        # flash.alert = "Sorry. You do not have enough tickets to ride the #{attraction.name}. You are not tall enough to ride the #{attraction.name}."
         
       elsif  user.height < attraction.min_height && user.tickets > attraction.tickets
         return "Sorry. You are not tall enough to ride the #{attraction.name}."
         
       elsif user.height > attraction.min_height && user.tickets < attraction.tickets
-          return "Sorry. You do not have enough tickets to ride the #{attraction.name}."
+        return "Sorry. You do not have enough tickets to ride the #{attraction.name}."
       end 
           
   end 
+  
+  # def start_ride(user, attraction)
+  #   current_tickets =  user.tickets - attraction.tickets
+  #   current_nausea =  user.nausea + attraction.nausea_rating
+  #   current_happiness =  user.happiness + attraction.happiness_rating
+  #   user.update(happiness: current_happiness, nausea: current_nausea, tickets: current_tickets)
+  #   return "Thanks for riding the #{attraction.name}!"
+    
+  # end
+  
+  
 end
 
 
